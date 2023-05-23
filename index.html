@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Array Manipulation</title>
+</head>
+
+<body>
+    <center>
+        <div id="names"></div>
+        <button onclick="addItem()">Add</button>
+        <button onclick="deleteItem()">Delete</button>
+    </center>
+    <script>
+        var names = ["Arsam", "Hasnain", "Mubeen", "Bilal", "Ayan"];
+        function displayNames() {
+            var namesDiv = document.getElementById("names");
+            namesDiv.innerHTML = "";
+
+            for (var i = 0; i < names.length; i++) {
+                namesDiv.innerHTML += names[i] + " ";
+            }
+        }
+        function addItem() {
+            var newName = prompt("Enter a name:");
+            var index = parseInt(prompt("Enter Index Number"));
+
+            if (index >= 0 && index <= 4) {
+                names.splice(index, 0, newName);
+                displayNames();
+            } else {
+                alert("Invalid");
+            }
+        }
+        function deleteItem() {
+            var index = parseInt(prompt("Enter the index number to which you want to delete"));
+            if (index >= 0 && index <= 4) {
+                names.splice(index, 1);
+                displayNames();
+            }
+        }
+        displayNames();
+    </script>
+</body>
+
+</html>
